@@ -3,7 +3,7 @@ import os
 import json
 from collections import OrderedDict
 import subprocess as sp
-from conllu.parser import parse, parse_tree
+from conllu import parse, parse_tree
 
 UDPIPE = "/home/lizaku/Programs/udpipe/src/udpipe"
 PATH = "/home/lizaku/Programs/udpipe/UD_Russian/ru.udpipe"
