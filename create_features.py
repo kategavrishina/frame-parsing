@@ -5,8 +5,11 @@ from collections import OrderedDict
 import subprocess as sp
 from conllu import parse, parse_tree
 
-UDPIPE = "/home/lizaku/Programs/udpipe/src/udpipe"
-PATH = "/home/lizaku/Programs/udpipe/UD_Russian/ru.udpipe"
+# UDPIPE = "/home/lizaku/Programs/udpipe/src/udpipe"
+# PATH = "/home/lizaku/Programs/udpipe/UD_Russian/ru.udpipe"
+
+UDPIPE = 'udpipe'
+PATH = "ru.udpipe"
 
 def map_roles(role):
     if role:
