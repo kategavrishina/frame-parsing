@@ -29,19 +29,18 @@ def cleansed_text(fname):
                 
 
 def process_conllu(inp):
-    tree = parse_tree(inp)
-    root = tree[0]
+    root = parse_tree(inp)[0]    
     data = {}
-    #path = 0
     for const in depth_first(root):
-        w = const[0]['form']
-        deprel = const[0]['deprel']
+        print(const)
+        w = const['form']
+        deprel = const['deprel']
         data[w] = deprel
     return data
         
 def depth_first(node):
-    yield node
-    for child in node[1]:
+    yield node.token
+    for child in node.children:
         for n in depth_first(child):
             yield n
 
