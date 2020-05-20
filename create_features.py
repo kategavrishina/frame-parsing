@@ -28,12 +28,13 @@ def cleansed_text(fname):
 def process_conllu(inp):
     root = parse_tree(inp)[0]    
     data = {}
+    consts = []
     for const in depth_first(root):
-        print(const)
+        consts.append(const)
         w = const['form']
         deprel = const['deprel']
         data[w] = deprel
-    return data
+    return data, consts
         
 def depth_first(node):
     yield node.token
@@ -65,7 +66,7 @@ def features(ex):
                    PATH], stdin=p1.stdout, stdout=sp.PIPE)
     p1.stdout.close()  # Allow p1 to receive a SIGPIPE if p2 exits.
     output = p2.communicate()[0].decode('utf-8')
-    synt_data = process_conllu(output)
+    synt_data, all_data = process_conllu(output)
     n_word = 0
     for w in ex:
         try:
@@ -102,7 +103,7 @@ def features(ex):
         prev_word = instance
         #print(w, d)
         n_word += 1
-    return args
+    return args, all_data
     
 
 
