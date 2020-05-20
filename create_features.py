@@ -29,7 +29,7 @@ def process_conllu(inp):
     root = parse_tree(inp)[0]    
     data = {}
     for const in depth_first(root):
-        #print(const)
+        print(const)
         w = const['form']
         deprel = const['deprel']
         data[w] = deprel
