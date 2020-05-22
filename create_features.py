@@ -76,7 +76,6 @@ def features(ex):
             pass
         if n_word == 0:
             prev_word, prev_gr, prev_lex = None, None, None
-        print(ex)
         instance = ex[w]
         try:
             lex, gr, sem, sem2, role, rank = instance
