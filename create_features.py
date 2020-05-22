@@ -66,6 +66,7 @@ def features(ex):
                    PATH], stdin=p1.stdout, stdout=sp.PIPE)
     p1.stdout.close()  # Allow p1 to receive a SIGPIPE if p2 exits.
     output = p2.communicate()[0].decode('utf-8')
+    print(output)
     synt_data, all_data = process_conllu(output)
     n_word = 0
     for w in ex:
